@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1453664846 source:c:\users\fred\documents\fred-dev\testsprites\testsprites.c
+1453929168 source:c:\users\fred\documents\fred-dev\testsprites\testsprites.c
 	<SDL.h>
 	<SDL_image.h>
-	<time.h>
+	<SDL_image.h>
 	<stdio.h>
 	<stdlib.h>
 	<time.h>

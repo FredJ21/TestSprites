@@ -1,7 +1,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
-#include <time.h>
-
+#include <SDL_image.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -13,16 +12,50 @@
 #define WINDOWS_SIZE_X    500
 #define WINDOWS_SIZE_Y    500
 
-#define START_IMG           "images/background.bmp"
+//#define START_IMG           "images/background.bmp"
+#define START_IMG           "images/bleue_mer.jpg"
+/*
 #define SPRITE              "images/PetitBateau1.bmp"
 #define IMG_SIZE_X          48
 #define IMG_SIZE_Y          48
 #define NB_COLONNE          3
-#define NB_IMG              12
+enum { UP, RIGHT, DOWN, LEFT };
+*/
+/*
+#define SPRITE              "images/bateau.png"
+#define IMG_SIZE_X          64
+#define IMG_SIZE_Y          64
+#define NB_COLONNE          4
+enum { DOWN, LEFT, RIGHT, UP };
+*/
+/*
+#define SPRITE              "images/surfvolanttest8qj.png"
+#define IMG_SIZE_X          110
+#define IMG_SIZE_Y          60
+#define NB_COLONNE          4
+enum { DOWN, LEFT, RIGHT, UP };
+*/
+
+#define SPRITE              "images/LOS-LargePirate.png"
+#define IMG_SIZE_X          208
+#define IMG_SIZE_Y          192
+#define NB_COLONNE          4
+enum { DOWN, LEFT, RIGHT, UP };
+
+/*
+#define SPRITE              "images/PC_HMM_boat.png"
+#define IMG_SIZE_X          61
+#define IMG_SIZE_Y          55
+#define NB_COLONNE          9
+enum { DOWN, LEFT, RIGHT, UP };
+*/
+
+
 
 #define NB_TOUR             3       // nombre de cycle avant changement d'image
 #define SPEED                3
 #define FPS                 30
+
 
 
 int main( int argc, char* args[] )
@@ -30,7 +63,7 @@ int main( int argc, char* args[] )
     printf("Hello world!\n");
 
     bool my_exit                = false;
-    bool my_pause               = false;
+    bool my_pause               = true;
     int x                       = WINDOWS_SIZE_X / 2;
     int y                       = WINDOWS_SIZE_Y / 2;
     int current_image           = 0;
@@ -65,7 +98,7 @@ int main( int argc, char* args[] )
     /******************************************************************************************************************
                                                 INIT SDL 2  -  Affichage d'une image de chargement ...
     *******************************************************************************************************************/
-    pSurface = SDL_LoadBMP (START_IMG);
+    pSurface = IMG_Load (START_IMG);
     if(!pSurface) {  SDL_Log( "SDL_Surface ERREUR! SDL_GetError: %s\n", SDL_GetError() ); return -1;}
 
     // Création de la texture (texture = surface dans le GPU)
@@ -111,16 +144,16 @@ int main( int argc, char* args[] )
                                 my_exit = true;
                                 break;
                             case SDLK_UP:
-                                current_direction = 0;
+                                current_direction = UP;
                                 break;
                             case SDLK_RIGHT:
-                                current_direction = 1;
+                                current_direction = RIGHT;
                                 break;
                             case SDLK_DOWN:
-                                current_direction = 2;
+                                current_direction = DOWN;
                                 break;
                             case SDLK_LEFT:
-                                current_direction = 3;
+                                current_direction = LEFT;
                                 break;
                             case SDLK_SPACE:
                                 if ( my_pause ) {  my_pause = false; } else { my_pause = true; }
@@ -152,10 +185,10 @@ int main( int argc, char* args[] )
 
             if ( !my_pause ) {
                 switch (current_direction){
-                    case 0:     if ( y > 0 + IMG_SIZE_Y/2 ) { y -= SPEED; }                                 break;
-                    case 1:     if ( x < WINDOWS_SIZE_X - IMG_SIZE_X/2 ) { x += SPEED; }                    break;
-                    case 2:     if ( y < WINDOWS_SIZE_Y - IMG_SIZE_Y/2 ) { y += SPEED; }                    break;
-                    case 3:     if ( x > 0 + IMG_SIZE_X/2 ) { x -= SPEED; }                                 break;
+                    case UP:        if ( y > 0 + IMG_SIZE_Y/2 ) { y -= SPEED; }                                 break;
+                    case RIGHT:     if ( x < WINDOWS_SIZE_X - IMG_SIZE_X/2 ) { x += SPEED; }                    break;
+                    case DOWN:      if ( y < WINDOWS_SIZE_Y - IMG_SIZE_Y/2 ) { y += SPEED; }                    break;
+                    case LEFT:     if ( x > 0 + IMG_SIZE_X/2 ) { x -= SPEED; }                                 break;
                 }
             }
 
