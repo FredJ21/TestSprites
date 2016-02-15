@@ -35,20 +35,28 @@ enum { DOWN, LEFT, RIGHT, UP };
 #define NB_COLONNE          4
 enum { DOWN, LEFT, RIGHT, UP };
 */
-
-#define SPRITE              "images/LOS-LargePirate.png"
-#define IMG_SIZE_X          208
-#define IMG_SIZE_Y          192
-#define NB_COLONNE          4
-enum { DOWN, LEFT, RIGHT, UP };
-
 /*
-#define SPRITE              "images/PC_HMM_boat.png"
+#define SPRITE              "images/LOS-LargePirate_1504x1400.png"
+#define IMG_SIZE_X          376
+#define IMG_SIZE_Y          350
+#define NB_COLONNE          4
+enum { UP, RIGHT, DOWN, LEFT };
+*/
+/*
+//#define SPRITE              "images/LOS-SinglePirate.png"
+
+#define IMG_SIZE_X          77
+#define IMG_SIZE_Y          62
+#define NB_COLONNE          4
+enum { UP, RIGHT, DOWN, LEFT };
+*/
+
+
+#define SPRITE              "images/Enemy-Bateau_soleil_61x55.png"
 #define IMG_SIZE_X          61
 #define IMG_SIZE_Y          55
 #define NB_COLONNE          9
-enum { DOWN, LEFT, RIGHT, UP };
-*/
+enum { UP, RIGHT, DOWN, LEFT };
 
 
 
